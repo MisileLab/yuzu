@@ -1,9 +1,8 @@
 [package]
-name = "rust-template"
+name = "yuzu"
 version = "0.1.0"
 description = "yeah."
-repository = "https://github.com/misilelab/rust-template"
-documentation = "https://docs.rs/rust-template"
+repository = "https://github.com/misilelab/yuzu"
 authors = ["MisileLaboratory"]
 readme = "README.md"
 license-file = "LICENSE.md"
@@ -12,3 +11,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+manic = { git = "https://github.com/x0f5c3/manic" }
+tokio = { version = "1.21.0", features = ["full"] }
+bollard = { git = "https://github.com/fussybeaver/bollard.git" }
+futures-util = "0.3.24"
