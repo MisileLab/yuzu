@@ -12,6 +12,6 @@ edition = "2021"
 
 [dependencies]
 manic = { git = "https://github.com/x0f5c3/manic" }
-tokio = { version = "1.21.0", features = ["full"] }
+tokio = { version = "1.21.1", features = ["full"] }
 bollard = { git = "https://github.com/fussybeaver/bollard.git" }
 futures-util = "0.3.24"
