@@ -63,6 +63,19 @@ optional = false
 python-versions = ">=3.5"
 
 [[package]]
+name = "misilelibpy"
+version = "0.1.0"
+description = "MisileLib-Python"
+category = "main"
+optional = false
+python-versions = "3.10.7"
+develop = false
+
+[package.source]
+type = "directory"
+url = "misilelib/misilelib-python"
+
+[[package]]
 name = "packaging"
 version = "21.3"
 description = "Core utilities for Python packages"
@@ -139,7 +152,7 @@ test = ["websockets"]
 [metadata]
 lock-version = "1.1"
 python-versions = "3.10.7"
-content-hash = "2905b0095b25bde10d87fd41ac9979f606f7fb658bc6974dbcee33f96496010e"
+content-hash = "7a0f87d2fa0a0a3fc187d308ed44367b4cd2d71d69c5f1d538994b47cebc7c96"
 
 [metadata.files]
 certifi = [
@@ -166,6 +179,7 @@ idna = [
     {file = "idna-3.4-py3-none-any.whl", hash = "sha256:90b77e79eaa3eba6de819a0c442c0b4ceefc341a7a2ab77d7562bf49f425c5c2"},
     {file = "idna-3.4.tar.gz", hash = "sha256:814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"},
 ]
+misilelibpy = []
 packaging = [
     {file = "packaging-21.3-py3-none-any.whl", hash = "sha256:ef103e05f519cdc783ae24ea4e2e0f508a9c99b2d4969652eed6a2e1ea5bd522"},
     {file = "packaging-21.3.tar.gz", hash = "sha256:dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"},
