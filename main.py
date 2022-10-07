@@ -1,5 +1,6 @@
 import docker
 import click
+from docker.models.containers import Container
 from docker.models.images import Model
 from docker.errors import APIError, NotFound
 from misilelibpy import check_path
@@ -18,16 +19,21 @@ class Dockers:
             container: Model = self.client.containers.run("eclipse-temurin:8-jre-jammy", detach=True) # type: ignore
             config = {"id": container.id_attribute}
         try:
-            c = self.client.containers.get(config["id"])
+            c: Container = self.client.containers.get(config["id"]) # type: ignore
         except (APIError, NotFound):
             remove("yuzu.toml")
             self.setup_some()
             return
         else:
-            pass
+            if c.status != "running":
+                c.start()
+            c.exec_run("sudo add-apt-repository ppa:deadsnakes/ppa && sudo apt update && sudo apt dist-upgrade && sudo apt install python3.10")
+            c.exec_run("curl -sSL example.sh | python -") # i'll change it
 
     def update_some(self):
-        raise NotImplementedError
+        config = loads(open("yuzu.toml", "r").read())["id"]
+        c = self.client.containers.get(config)
+        c.exec_run("sudo apt update && sudo apt dist-upgrade") # type: ignore
 
     def link_some(self):
         raise NotImplementedError
