@@ -15,7 +15,7 @@ optional = false
 python-versions = ">=3.6.0"
 
 [package.extras]
-unicode_backport = ["unicodedata2"]
+unicode-backport = ["unicodedata2"]
 
 [[package]]
 name = "click"
@@ -68,7 +68,7 @@ version = "0.1.0"
 description = "MisileLib-Python"
 category = "main"
 optional = false
-python-versions = "3.10.7"
+python-versions = "3.10.8"
 develop = false
 
 [package.source]
@@ -121,7 +121,7 @@ urllib3 = ">=1.21.1,<1.27"
 
 [package.extras]
 socks = ["PySocks (>=1.5.6,!=1.5.7)"]
-use_chardet_on_py3 = ["chardet (>=3.0.2,<6)"]
+use-chardet-on-py3 = ["chardet (>=3.0.2,<6)"]
 
 [[package]]
 name = "tomli"
@@ -159,8 +159,8 @@ test = ["websockets"]
 
 [metadata]
 lock-version = "1.1"
-python-versions = "3.10.7"
-content-hash = "8ae8871ae8324fcc9c1b76b487574372c6c67b553ba074cfce19efa7cfa4d58e"
+python-versions = "3.10.8"
+content-hash = "e451d9d7151550f8521ce79ea7204336d457169b8354b5d94833c3f0137c957a"
 
 [metadata.files]
 certifi = [
