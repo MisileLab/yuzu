@@ -64,12 +64,13 @@ class Dockers:
             c.exec_run(string)
             config[vstring] = f"yuzu/{vstring}"
             write_once(check_path('yuzu/yuzu.json'), dumps(config))
-        else:
-            lpath = config["mversion"]
-        # TODO: Some other utilites
+            c.exec_run("'eula=true' > eula.txt")
+        lpath = config[vstring]
+        c.exec_run(f"mkdir server && ln -s {lpath}/libraries server/libraries && ln -s {lpath}/eula.txt server/eula.txt")
 
-    def run_java(self):
-        raise NotImplementedError
+    def run_java(self, ram: int):
+        c: Container = self.client.containers.get(loads(read_once("yuzu.toml"))["id"]) # type: ignore
+        c.exec_run(f"java --Xms{ram}G -Xmx{ram}G -jar *.jar")
 
 @click.option('--version', type=str, help="minecraft version")
 @click.option('--modloader', type=str, default=None, help="modloader, default is vanilia")
@@ -90,7 +91,7 @@ def main(version: str, mversion: str | None, ram: int, dir: str | None, modloade
             "modloader": modloader
         }
     }) # type: ignore
-    dockers.run_java()
+    dockers.run_java(ram)
 
 @click.command("list")
 def show_list():
