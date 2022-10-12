@@ -4,3 +4,8 @@
 ![License](https://img.shields.io/badge/license-misilelab-green?style=for-the-badge)
 
 minecraft docker-based server manager
+
+## Some(milestones)
+
+- [x] basic feature
+- [ ] detect duplicate mod and link it by hash
